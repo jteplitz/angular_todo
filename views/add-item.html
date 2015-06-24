@@ -1,2 +1,2 @@
-<input type="text" (keyup)="doneTyping($event)" #todoText></input>
-<button (click)="addTodo()">+</button>
+<input type="text" (keyup)="doneTyping($event)" #todotext></input>
+<button (click)="addTodo(todotext.value)">+</button>

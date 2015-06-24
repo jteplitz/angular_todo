@@ -1,3 +1,3 @@
-<todo-list>
+<todo-list #todolist>
 </todo-list>
-<add-item></add-item>
+<add-item (additem)="todolist.addItem($event)" ></add-item>
