@@ -1,5 +1,6 @@
 <ul>
-  <li *ng-for="#item of items">
-    {{item.title}}
+  <li *ng-for="#item of items; #i=index">
+    <span>{{item.title}}</span>
+    <a href="#" (click)="removeItem(i)">x</a>
   </li>
 </ul>

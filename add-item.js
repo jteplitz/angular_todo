@@ -14,19 +14,21 @@ var angular2_1 = require('angular2/angular2');
 var async_1 = require('angular2/src/facade/async');
 var AddItem = (function () {
     function AddItem() {
-        this.additem = new async_1.EventEmitter();
+        this.add = new async_1.EventEmitter();
     }
     AddItem.prototype.addTodo = function (title) {
-        this.addItem.next(title);
+        this.add.next(title);
     };
     AddItem.prototype.doneTyping = function ($event) {
-        console.log("don't remoe");
-        // TODO: respond to enter
+        if ($event.which === 13) {
+            this.addTodo($event.target.value);
+            $event.target.value = null;
+        }
     };
     AddItem = __decorate([
         angular2_1.Component({
             selector: "add-item",
-            events: ["additem"]
+            events: ["add"]
         }),
         angular2_1.View({
             templateUrl: "views/add-item.html"

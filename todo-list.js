@@ -15,11 +15,11 @@ var TodoList = (function () {
     function TodoList() {
         this.items = [];
     }
-    /*public addItem = (title: string) : void => {
-      this.items.push(new TodoItem(title));
-    }*/
     TodoList.prototype.addItem = function (title) {
         this.items.push(new TodoItem(title));
+    };
+    TodoList.prototype.removeItem = function (index) {
+        this.items.splice(index, 1);
     };
     TodoList = __decorate([
         angular2_1.Component({

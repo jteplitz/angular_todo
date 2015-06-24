@@ -4,22 +4,24 @@ import {EventEmitter} from 'angular2/src/facade/async';
 
 @Component({
   selector: "add-item",
-  events: ["additem"]
+  events: ["add"]
 })
 @View({
   templateUrl: "views/add-item.html"
 })
 export class AddItem{
-  additem: EventEmitter = new EventEmitter();
+  add: EventEmitter = new EventEmitter();
 
   constructor(){}
 
   addTodo(title: string){
-    this.addItem.next(title);
+    this.add.next(title);
   }
   
   doneTyping($event): void{
-    console.log("don't remoe");
-    // TODO: respond to enter
+    if ($event.which === 13){
+      this.addTodo($event.target.value);
+      $event.target.value = null;
+    }
   }
 }

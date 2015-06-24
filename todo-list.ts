@@ -12,11 +12,12 @@ export class TodoList{
   //items: TodoItems = [];
   items: TodoItem[];
 
-  /*public addItem = (title: string) : void => {
-    this.items.push(new TodoItem(title));
-  }*/
   addItem(title: string){
     this.items.push(new TodoItem(title));
+  }
+
+  removeItem(index: number){
+    this.items.splice(index, 1);
   }
 
   constructor(){
