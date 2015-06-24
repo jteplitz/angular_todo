@@ -1,26 +1,27 @@
-import {Component, View, bootstrap} from 'angular2/angular2';
+/// <reference path="typings/angular2/angular2.d.ts" />
+import {Component, View, bootstrap, NgFor} from 'angular2/angular2';
 
 @Component({
   selector: "todo-list"
 })
 @View({
-  template: System.import("views/todo-list.html!text")
+  templateUrl: "views/todo-list.html",
+  directives: [NgFor]
 })
-class TodoList{
-  items: TodoItems;
+export class TodoList{
+  //items: TodoItems = [];
+  items: TodoItem[];
+
+  /*public addItem = (title: string) : void => {
+    this.items.push(new TodoItem(title));
+  }*/
+  addItem(title: string){
+    this.items.push(new TodoItem(title));
+  }
 
   constructor(){
-    addItem("test 1");
-    addItem("test 2");
+    this.items = [];
   }
-
-  addItem(title: string){
-    items.push(new TodoItem(title));
-  }
-}
-
-interface TodoItems{
-  [index: number]: TodoItem;
 }
 
 class TodoItem{

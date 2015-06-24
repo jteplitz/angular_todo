@@ -11,6 +11,8 @@ if (typeof __metadata !== "function") __metadata = function (k, v) {
 };
 /// <reference path="typings/angular2/angular2.d.ts" />
 var angular2_1 = require('angular2/angular2');
+var todo_list_1 = require("./todo-list");
+var add_item_1 = require("./add-item");
 var Todo = (function () {
     function Todo() {
     }
@@ -19,7 +21,8 @@ var Todo = (function () {
             selector: "todo"
         }),
         angular2_1.View({
-            templateUrl: "views/todo.html"
+            templateUrl: "views/todo.html",
+            directives: [todo_list_1.TodoList, add_item_1.AddItem]
         }), 
         __metadata('design:paramtypes', [])
     ], Todo);

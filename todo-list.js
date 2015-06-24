@@ -9,26 +9,31 @@ if (typeof __decorate !== "function") __decorate = function (decorators, target,
 if (typeof __metadata !== "function") __metadata = function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+/// <reference path="typings/angular2/angular2.d.ts" />
 var angular2_1 = require('angular2/angular2');
 var TodoList = (function () {
     function TodoList() {
-        addItem("test 1");
-        addItem("test 2");
+        this.items = [];
     }
+    /*public addItem = (title: string) : void => {
+      this.items.push(new TodoItem(title));
+    }*/
     TodoList.prototype.addItem = function (title) {
-        items.push(new TodoItem(title));
+        this.items.push(new TodoItem(title));
     };
     TodoList = __decorate([
         angular2_1.Component({
             selector: "todo-list"
         }),
         angular2_1.View({
-            template: System.import("views/todo-list.html!text")
+            templateUrl: "views/todo-list.html",
+            directives: [angular2_1.NgFor]
         }), 
         __metadata('design:paramtypes', [])
     ], TodoList);
     return TodoList;
 })();
+exports.TodoList = TodoList;
 var TodoItem = (function () {
     function TodoItem(title) {
         this.title = title;
